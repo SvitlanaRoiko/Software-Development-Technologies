@@ -1,0 +1,40 @@
+:root{--red:#b3262e;--dark:#4a1014;--cream:#fff8f0;--ink:#2b2b2b;--card:#ffffff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+.hero{background:linear-gradient(135deg,var(--red),var(--dark));color:#fff;text-align:center;padding:48px 16px}
+.hero__emoji{font-size:64px}
+.hero h1{font-size:2.6rem;margin:8px 0}
+.hero__lead{opacity:.9;font-size:1.1rem}
+.container{max-width:1100px;margin:0 auto;padding:24px 16px}
+
+/* Grid: картки інформації */
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px}
+.info__card{background:var(--card);border-radius:12px;padding:16px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.info__card span{display:block;font-size:.9rem;color:#666}
+.info__card strong{font-size:1.2rem;color:var(--red)}
+
+/* Flexbox: інгредієнти + кроки */
+.layout{display:flex;gap:24px;margin-top:32px;align-items:flex-start}
+.ingredients{flex:1 1 300px;background:var(--card);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.steps{flex:2 1 500px}
+h2{color:var(--red);margin-bottom:12px}
+.ingredients ul{list-style:none}
+.ingredients li{padding:8px 0;border-bottom:1px dashed #ddd}
+.ingredients li:last-child{border-bottom:0}
+.steps ol{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;position:relative;background:var(--card);border-radius:12px;padding:16px 16px 16px 64px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.steps li::before{content:counter(step);position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.steps h3{margin-bottom:4px}
+.tip{margin-top:24px;background:#ffe9c7;border-left:6px solid #f0a030;padding:16px;border-radius:8px}
+.footer{text-align:center;padding:20px;background:var(--dark);color:#fff;margin-top:24px}
+
+/* Адаптивність */
+@media (max-width:900px){
+  .info{grid-template-columns:repeat(2,1fr)}
+  .layout{flex-direction:column}
+  .ingredients,.steps{width:100%;flex:none}
+}
+@media (max-width:480px){
+  .hero h1{font-size:1.8rem}
+  .info{grid-template-columns:1fr;margin-top:-32px}
+}
